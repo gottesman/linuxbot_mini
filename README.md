@@ -1,13 +1,11 @@
 # LinuxBot mini
 Mini LinuxBot on Telegram
 
- *
- * Creado por Gottesman (@gottesman en telegram)
- * 
+* Creado por Gottesman (@gottesman en telegram)
 
 UBICAR TODOS LOS ARCHIVOS EN /var/www/html *
 
- * Requisitos de ejecución *
+* Requisitos de ejecución
 
  apache2
  openssl
@@ -40,7 +38,7 @@ UBICAR TODOS LOS ARCHIVOS EN /var/www/html *
       SSLCertificateKeyFile /var/www/YOURPRIVATE.key
 
 	6. Reiniciar el servicio de Apache
-	7. Editar el archivo "iniciar.php" llenando los campos adecuadamente
+	7. Editar el archivo "config.php" llenando los campos adecuadamente
 	8. Visitar http://IP/iniciar.php	(Cambiar IP por la IP pública del bot)
 	9. Eso debería ser todo
  
