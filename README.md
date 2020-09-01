@@ -1,2 +1,2 @@
-# linuxbot_mini
+# LinuxBot mini
 Mini LinuxBot on Telegram
