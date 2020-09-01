@@ -1,8 +1,8 @@
-# LinuxBot mini en Telegram
+# LinuxBot mini en Telegram ([@LinuxLat_Bot](http://t.me/linuxlat_bot))
 
 *Es __mini__ porque la versión completa la estoy recuperando*
 
-* Creado por Gottesman (@gottesman en telegram)
+* Creado por Gottesman ([en telegram](http://t.me/gottesman))
 
 * UBICAR TODOS LOS ARCHIVOS EN /var/www/html
 
