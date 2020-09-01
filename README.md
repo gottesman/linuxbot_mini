@@ -94,11 +94,15 @@ action = iptables[name=HTTP, port=http, protocol=tcp]
 	4. Abrir `/etc/apache2/sites-enabled/default-ssl.conf` con el editor que se quiera.
 	
 	5. Cambiar las lineas
-	      `SSLCertificateFile ********`
-	      `SSLCertificateKeyFile ********`
+	      ```
+SSLCertificateFile ********
+SSLCertificateKeyFile ********
+	      ```
 	     a
-	      `SSLCertificateFile /var/www/YOURPUBLIC.pem`
-	      `SSLCertificateKeyFile /var/www/YOURPRIVATE.key`
+	      ```
+SSLCertificateFile /var/www/YOURPUBLIC.pem
+SSLCertificateKeyFile /var/www/YOURPRIVATE.key
+	      ```
 
 	6. Reiniciar el servicio de Apache
 	
