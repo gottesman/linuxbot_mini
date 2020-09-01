@@ -2,7 +2,7 @@
 
 *Es __mini__ porque la versión completa la estoy recuperando*
 
-* Creado por Gottesman ([en telegram](http://t.me/gottesman))
+* Creado por [@Gottesman](http://t.me/gottesman)
 
 * UBICAR TODOS LOS ARCHIVOS EN /var/www/html
 
