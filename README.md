@@ -31,8 +31,10 @@
  
  Configurar siguiendo la guía:
  
-	1. Abrir con un editor de textos (como VIM o NANO) el archivo `/etc/fail2ban/jail.d/defaults-*.conf` y llenar con esta configuración:
-	```[DEFAULT]
+ 1. Abrir con un editor de textos (como VIM o NANO) el archivo `/etc/fail2ban/jail.d/defaults-*.conf` y llenar con esta configuración:
+	
+```
+[DEFAULT]
 ignoreip = 127.0.0.1/8 ::1 149.154.160.0/22 149.154.164.0/22 91.108.4.0/22 91.108.56.0/22 91.108.8.0/22 95.161.64.0/20
 
 [sshd]
@@ -77,7 +79,6 @@ findtime = 300
 bantime = 600
 action = iptables[name=HTTP, port=http, protocol=tcp]
 ```
- 
 
 * Tener configurado correctamente HTTPS con su certificado con URL de la IP, si no se tiene, seguir la guía:
 
