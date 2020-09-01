@@ -47,4 +47,4 @@ si no se tiene, seguir la guia como **ROOT** en **BASH**:
 	9. Eso debería ser todo
  
 
-
+- Tener la API de Open Weather Map (https://openweathermap.org/)
