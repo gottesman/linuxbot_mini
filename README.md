@@ -4,23 +4,82 @@
 
 * Creado por [@Gottesman](http://t.me/gottesman)
 
+* Recomiendo el siguiente servicio de VPS: **[iniz.com](https://iniz.com/)** con ubicación en **Ámsterdam**
+
 * UBICAR TODOS LOS ARCHIVOS EN /var/www/html
 
 ## Requisitos de ejecución
 
- apache2
- openssl
- php
- php_mbstring
- php_curl
+* Apache2, OpenSSL y PHP
  
- Ejemplo en debian:
+ Ejemplo en Debian y Ubuntu:
  
  `apt-get install apache2 openssl php php_mbstring php_curl`
  
+* Puerto 443 abierto en Firewalls y Router
 
- - Tener configurado correctamente HTTPS con su certificado con URL de la IP,
-si no se tiene, seguir la guia como **ROOT** en **BASH**:
+ Para abrir puerto 443 en Debian es:
+ `iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT`
+ 
+ O en Ubuntu:
+ `ufw allow 443`
+ 
+* Se sugiere utilizar **fail2ban**
+
+ Para instalar en Debian y Ubuntu
+ `apt get install fail2ban`
+ 
+ Configurar siguiendo la guía:
+ 
+	1. Abrir con un editor de textos (como VIM o NANO) el archivo `/etc/fail2ban/jail.d/defaults-*.conf` y llenar con esta configuración:
+	```[DEFAULT]
+ignoreip = 127.0.0.1/8 ::1 149.154.160.0/22 149.154.164.0/22 91.108.4.0/22 91.108.56.0/22 91.108.8.0/22 95.161.64.0/20
+
+[sshd]
+
+enabled  = true
+maxretry = 5
+bantime  = 10800
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+
+[apache]
+enabled  = true
+port     = http,https
+filter   = apache-auth
+logpath  = /var/log/apache*/*error.log
+maxretry = 6
+
+[apache-noscript]
+
+enabled  = true
+port     = http,https
+filter   = apache-noscript
+logpath  = /var/log/apache*/*error.log
+maxretry = 6
+
+[apache-overflows]
+
+enabled  = true
+port     = http,https
+filter   = apache-overflows
+logpath  = /var/log/apache*/*error.log
+maxretry = 2
+
+[http-get-dos]
+enabled = true
+port = http,https
+filter = http-get-dos
+logpath = /var/log/apache*/*access.log
+maxretry = 300
+findtime = 300
+bantime = 600
+action = iptables[name=HTTP, port=http, protocol=tcp]
+```
+ 
+
+* Tener configurado correctamente HTTPS con su certificado con URL de la IP, si no se tiene, seguir la guía:
 
  	1. Ejecutar: `cd /var/www`
 	
@@ -49,4 +108,4 @@ si no se tiene, seguir la guia como **ROOT** en **BASH**:
 	9. Eso debería ser todo
  
 
-- Tener la API de Open Weather Map (https://openweathermap.org/)
+* Tener la API de Open Weather Map (https://openweathermap.org/)
