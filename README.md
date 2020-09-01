@@ -1,8 +1,10 @@
 # LinuxBot mini en Telegram
 
+*Es __mini__ porque la versión completa la estoy recuperando*
+
 * Creado por Gottesman (@gottesman en telegram)
 
-* UBICAR TODOS LOS ARCHIVOS EN /var/www/html *
+* UBICAR TODOS LOS ARCHIVOS EN /var/www/html
 
 ## Requisitos de ejecución
 
