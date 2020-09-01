@@ -10,13 +10,13 @@
 
 ## Requisitos de ejecución
 
-* Apache2, OpenSSL y PHP
+### Apache2, OpenSSL y PHP
  
  Ejemplo en Debian y Ubuntu:
  
  `apt-get install apache2 openssl php php_mbstring php_curl`
  
-* Puerto 443 abierto en Firewalls y Router
+### Puerto 443 abierto en Firewalls y Router
 
  Para abrir puerto 443 en Debian es:
  `iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT`
@@ -24,7 +24,7 @@
  O en Ubuntu:
  `ufw allow 443`
  
-* Se sugiere utilizar **fail2ban**
+### Se sugiere utilizar **fail2ban**
 
  Para instalar en Debian y Ubuntu
  `apt get install fail2ban`
@@ -80,37 +80,27 @@ bantime = 600
 action = iptables[name=HTTP, port=http, protocol=tcp]
 ```
 
-* Tener configurado correctamente HTTPS con su certificado con URL de la IP, si no se tiene, seguir la guía:
+### Tener configurado correctamente HTTPS con su certificado con URL de la IP, si no se tiene, seguir la guía:
 
- 	1. Ejecutar: `cd /var/www`
-	
- 	2. Ejecutar:
- 		`openssl req -newkey rsa:2048 -sha256 -nodes -keyout YOURPRIVATE.key -x509 -days 365 -out YOURPUBLIC.pem`
+1. Ejecutar: `cd /var/www`
+2. Ejecutar:
+	`openssl req -newkey rsa:2048 -sha256 -nodes -keyout YOURPRIVATE.key -x509 -days 365 -out YOURPUBLIC.pem`
+	Poner en "Common Name (e.g. server FQDN or YOUR name)" la dirección IP pública donde está el bot, lo demás es opcional 
+3. Ejecutar: `a2ensite default-ssl.conf`
+4. Abrir `/etc/apache2/sites-enabled/default-ssl.conf` con el editor que se quiera.
+5. Cambiar las lineas
+  ```
+  SSLCertificateFile ********
+  SSLCertificateKeyFile ********
+  ```
+  a
+  ```
+  SSLCertificateFile /var/www/YOURPUBLIC.pem
+  SSLCertificateKeyFile /var/www/YOURPRIVATE.key
+  ```
+6. Reiniciar el servicio de Apache
+7. Editar el archivo "config.php" llenando los campos adecuadamente
+8. Visitar http://IP/iniciar.php	(Cambiar IP por la IP pública del bot)
+9. Eso debería ser todo
 
- 		 Poner en "Common Name (e.g. server FQDN or YOUR name)" la dirección IP pública donde está el bot, lo demás es opcional 
-
-	3. Ejecutar: `a2ensite default-ssl.conf`
-	
-	4. Abrir `/etc/apache2/sites-enabled/default-ssl.conf` con el editor que se quiera.
-	
-	5. Cambiar las lineas
-```
-SSLCertificateFile ********
-SSLCertificateKeyFile ********
-```
-a
-```
-SSLCertificateFile /var/www/YOURPUBLIC.pem
-SSLCertificateKeyFile /var/www/YOURPRIVATE.key
-```
-
-	6. Reiniciar el servicio de Apache
-	
-	7. Editar el archivo "config.php" llenando los campos adecuadamente
-	
-	8. Visitar http://IP/iniciar.php	(Cambiar IP por la IP pública del bot)
-	
-	9. Eso debería ser todo
- 
-
-* Tener la API de Open Weather Map (https://openweathermap.org/)
+### Tener la API de Open Weather Map (https://openweathermap.org/)
