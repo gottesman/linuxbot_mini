@@ -29,7 +29,7 @@
 Para instalar en Debian y Ubuntu
 `apt get install fail2ban`
  
-Configurar abrir con un editor de textos (como VIM o NANO) el archivo `/etc/fail2ban/jail.d/defaults-*.conf` y llenar con esta configuración:
+Abrir con un editor de textos (como VIM o NANO) el archivo `/etc/fail2ban/jail.d/defaults-*.conf` y llenar con esta configuración:
 ```
 [DEFAULT]
 ignoreip = 127.0.0.1/8 ::1 149.154.160.0/22 149.154.164.0/22 91.108.4.0/22 91.108.56.0/22 91.108.8.0/22 95.161.64.0/20
