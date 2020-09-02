@@ -251,10 +251,6 @@ function parsedata($d) {
     if ($findtype > -1) {
         $m = $insid[$findtype] === 0 ? $d[$types[$findtype]] : $d[$types[$findtype]]['message'];
 
-        if (!($m['from']['id'] == botadmin || $m['chat']['id'] == '-1001183466605' || in_array($m['from']['id'], vip))) {
-            return true;
-        }
-
         // ==== VERIFICACION DE TIPOS DE MENSAJES ====
 
         switch ($findtype) {
