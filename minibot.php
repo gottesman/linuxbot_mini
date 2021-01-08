@@ -194,7 +194,7 @@ function command_clima($arr){
     $wurl='http://api.openweathermap.org/data/2.5/weather?q='.$arr[2].'&appid='.weatherapi.'&units=metric&lang=sp';
     $datar=getweb($wurl);
     if($datar===false){
-        sendm($arr[0]['chat']['id'],'<i>Error de comando</i>');
+        return sendm($arr[0]['chat']['id'],'<i>Error de comando</i>');
     }
     $data=json_decode($datar,true);
     $codes= json_decode(file_get_contents("paises.json"),true);
